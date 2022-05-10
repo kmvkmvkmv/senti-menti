@@ -7,7 +7,7 @@
     >
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Senti Menti"
           class="shrink mr-4 ml-2"
           contain
           src="./assets/sm-logo.png"
@@ -20,23 +20,30 @@
     </v-app-bar>
 
     <v-main  style="background-image: url('https://www.desktopbackground.org/download/2560x1440/2010/07/16/49007_3d-anime-wallpapers-hd-wallpapers-inn_2560x1600_h.jpg');">
-      <HomePage/>
+      <router-view/>
     </v-main>
   </v-app>
 </template>
 
-<script>
-import HomePage from './components/HomePage';
+// <style lang="scss">
+// #app {
+//   font-family: Avenir, Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   // color: #2c3e50;
+// }
 
-export default {
-  name: 'App',
+// // #nav {
+// //   padding: 30px;
 
-  components: {
-    HomePage,
-  },
+// //   a {
+// //     font-weight: bold;
+// //     color: #2c3e50;
 
-  data: () => ({
-    //
-  }),
-};
-</script>
+// //     &.router-link-exact-active {
+// //       color: #42b983;
+// //     }
+// //   }
+// // }
+// </style>
