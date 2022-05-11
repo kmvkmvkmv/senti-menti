@@ -14,8 +14,8 @@
           transition="scale-transition"
           width="60"
         />
-
-        <h2>Senti Menti</h2>
+        <v-toolbar-title class="mr-4">Senti Menti</v-toolbar-title>
+        <span @click="onClick">Feedback Dashboard</span>
       </div>
     </v-app-bar>
 
@@ -25,3 +25,15 @@
   </v-app>
 </template>
 
+<script>
+export default {
+  name: "App",
+  data: () => ({
+  }),
+  methods: {
+    onClick() {
+      this.$router.push({ name: 'FeedbackDashboard'});
+    },
+  },
+};
+</script>
