@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = 'https://www.themealdb.com/api/json/v1/1';
 
 export const postFeedback = (payload) => {
-    if(payload) return 'Negative';
+    if (payload) return 'Positive';
     return '';
     // return axios.get(`${baseUrl}/random.php`)
 }
