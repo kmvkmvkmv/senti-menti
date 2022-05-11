@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = 'https://www.themealdb.com/api/json/v1/1';
 
 export const postFeedback = (payload) => {
-    if(payload) return 'Negative';
+    if (payload) return 'Negative';
     return '';
     // return axios.get(`${baseUrl}/random.php`)
 }
@@ -15,7 +15,7 @@ export const getAllFeedbacks = () => {
             "analysis": "Negative"
         },
         {
-            "feedback": "Not bad ",
+            "feedback": "Not bad",
             "analysis": "Neutral"
         },
         {
@@ -24,6 +24,18 @@ export const getAllFeedbacks = () => {
         },
         {
             "feedback": "This is quite good ",
+            "analysis": "Positive"
+        },
+        {
+            "feedback": "user experience is good",
+            "analysis": "Positive"
+        },
+        {
+            "feedback": "good",
+            "analysis": "Positive"
+        },
+        {
+            "feedback": "good quality",
             "analysis": "Positive"
         }
     ];
