@@ -3,6 +3,7 @@
     <v-app-bar app color="teal darken-2" dark>
       <div class="d-flex align-center">
         <v-img
+          role="button"
           @click="toHome"
           alt="Senti Menti"
           class="shrink mr-4 ml-2"

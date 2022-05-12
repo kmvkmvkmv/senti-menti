@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="text-center">
       <v-col>
-        <v-card class="mx-auto mt-5" max-width="450" height="800">
+        <v-card class="mx-auto mt-5" max-width="450">
           <v-img
             class="white--text align-end"
             height="300px"
@@ -15,22 +15,22 @@
           </v-card-subtitle>
 
           <v-card-subtitle class="mb-5">
-            <Rating />
+            <Rating @ratingChange="changeRating" :passed-rating="rating" />
           </v-card-subtitle>
 
           <v-card-text class="text--primary px-6">
             <v-textarea
-              name="input-7-1"
+              outlined
               filled
-              label="Comments"
+              label="Feedback"
               auto-grow
               v-model="feedbackString"
             ></v-textarea>
           </v-card-text>
 
-          <v-card-actions class="px-6">
+          <v-card-actions class="px-6 py-4">
             <v-btn color="orange" @click="submitFeedback">Submit</v-btn>
-            <v-btn color="orange">Reset</v-btn>
+            <v-btn color="orange" @click="resetForm">Reset</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -46,6 +46,7 @@ export default {
   name: "HomePage",
   data: () => ({
     feedbackString: "",
+    rating: 0,
   }),
   components: {
     Rating,
@@ -54,7 +55,18 @@ export default {
     async submitFeedback() {
       const response = await postFeedback({ feedback: this.feedbackString });
       console.log("response:", response);
-      this.$router.push({ name: 'Thankyou', params: { response } });
+      this.$router.push({
+        name: "Thankyou",
+        params: { response: response.data },
+      });
+    },
+    resetForm() {
+      console.log("reset", this.rating);
+      this.feedbackString = "";
+      this.rating = 0;
+    },
+    changeRating(newRating) {
+      this.rating = newRating;
     },
   },
 };

@@ -17,35 +17,48 @@
 <script>
 export default {
   name: "Rating",
+  props: ["passedRating"],
   data: () => ({
     colors: ["red", "orange", "yellow darken-1", "green lighten-3", "green"],
     rating: 0,
   }),
+  mounted() {
+    this.rating = this.passedRating;
+  },
+  watch: {
+    passedRating(newValue) {
+      this.rating = newValue;
+      console.log("updated watch", this.rating);
+    },
+    rating(newValue) {
+      this.$emit("ratingChange", newValue);
+    },
+  },
   methods: {
     genColor() {
       return this.colors[this.rating - 1];
     },
     genIcon(isFilled) {
-        if(isFilled){
-            switch (this.rating) {
-                case 0:
-                    return 'mdi-emoticon-angry';
-                case 1:
-                    return 'mdi-emoticon-angry';
-                case 2:
-                    return 'mdi-emoticon-sad';
-                case 3:
-                    return 'mdi-emoticon-neutral';
-                case 4:
-                    return 'mdi-emoticon-happy';
-                case 5:
-                return 'mdi-emoticon';
-                default:
-                    break;
-            }
+      if (isFilled) {
+        switch (this.rating) {
+          case 0:
+            return "mdi-emoticon-angry";
+          case 1:
+            return "mdi-emoticon-angry";
+          case 2:
+            return "mdi-emoticon-sad";
+          case 3:
+            return "mdi-emoticon-neutral";
+          case 4:
+            return "mdi-emoticon-happy";
+          case 5:
+            return "mdi-emoticon";
+          default:
+            break;
         }
-        return "mdi-star-circle-outline";
-    }
+      }
+      return "mdi-star-circle-outline";
+    },
   },
 };
 </script>
